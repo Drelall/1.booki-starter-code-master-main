@@ -468,12 +468,17 @@ h3.apropos {
     margin: 0;
     margin-left: -50px;
 }
-  .navig {/*partie mobile caché*/
-    display: block;
+  .navig {
+    display: block;/*partie mobile du navigateur, caché dans la version bureau*/
+    margin-top: 30px;
 }
 .cache {
     display: none;
     margin-top: 30px;
+}
+.navig {
+    display: block;
+    
 }
   /*navigation*/
 
