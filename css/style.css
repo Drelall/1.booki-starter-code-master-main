@@ -80,7 +80,8 @@ ul {
   position: relative; /* Nécessaire pour placer une bordure au-dessus */
 }
 
-.navigation a::before {/*partie mobile caché*/
+.navigation a::before {
+  /*partie mobile caché*/
   /*Pour afficher une "bordure de soulignement" au-dessus du texte*/
   content: ""; /* Nécessaire pour créer un pseudo-élément */
   position: absolute;
@@ -91,13 +92,15 @@ ul {
   background-color: #0065fc; /* Couleur de la bordure */
   transition: all 0.3s ease; /* Animation fluide */
 }
-.navig a:hover {/*partie mobile caché*/
+.navig a:hover {
+  /*partie mobile caché*/
   color: #0065fc; /* Couleur par défaut */
   text-decoration: none; /* Pas de soulignement par défaut */
   position: relative; /* Nécessaire pour placer une bordure au-dessus */
 }
-.navig {/*partie mobile caché*/
-    display: none;
+.navig {
+  /*partie mobile caché*/
+  display: none;
 }
 
 .navig a::before {
@@ -148,7 +151,7 @@ input[type="submit"] {
   border: 1px solid #0065fc; /* Définit précisément la taille et type de bordure + la couleur */
 }
 .loupe {
-    display: none;/*cache la loupe en mode bureau*/
+  display: none; /*cache la loupe en mode bureau*/
 }
 /*Le formulaire de recherche*/
 
@@ -439,8 +442,8 @@ h3.apropos {
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
   /* ... */
-/*navigation*/
-.navigation a::before {
+  /*navigation*/
+  .navigation a::before {
     content: "";
     position: absolute;
     bottom: -13px;
@@ -449,37 +452,36 @@ h3.apropos {
     height: 2px;
     background-color: #0065fc;
     transition: all 0.3s ease;
-}
+  }
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 30px;
-}
+  }
   nav img {
     margin-top: 25px;
     margin-left: 110px;
-}
+  }
   ul {
     display: flex;
     gap: 100px;
     list-style: none;
     margin: 0;
     margin-left: -50px;
-}
+  }
   .navig {
-    display: block;/*partie mobile du navigateur, caché dans la version bureau*/
+    display: block; /*partie mobile du navigateur, caché dans la version bureau*/
     margin-top: 30px;
-}
-.cache {
+  }
+  .cache {
     display: none;
     margin-top: 30px;
-}
-.navig {
+  }
+  .navig {
     display: block;
-    
-}
+  }
   /*navigation*/
 
   /*barre rechercher*/
@@ -490,11 +492,11 @@ h3.apropos {
     background-color: #0065fc;
     border: 1px solid #0065fc;
     display: none;
-}
-.loupe {
+  }
+  .loupe {
     display: block;
-}
- /*barre rechercher*/
+  }
+  /*barre rechercher*/
 
   /*filtres*/
   .bardefiltres {
@@ -613,6 +615,6 @@ h3.apropos {
     margin-top: -15px;
     margin-bottom: 20px;
   }
-  /*info*/ 
+  /*info*/
 }
 /* Small devices (phones) */
