@@ -1,5 +1,5 @@
 /****** General ***********/
-* {
+body {
   font-family: "Raleway", sans-serif;
 }
 
@@ -74,13 +74,13 @@ ul {
   list-style: none; /*retire les points de la balise*/
   margin: 0;
 }
-.navigation a:hover {
+.nav-link:hover {
   color: #0065fc; /* Couleur par défaut */
   text-decoration: none; /* Pas de soulignement par défaut */
   position: relative; /* Nécessaire pour placer une bordure au-dessus */
 }
 
-.navigation a::before {
+.nav-link::before {
   content: ""; /* Nécessaire pour créer un pseudo-élément */
   position: absolute;
   top: -13px; /* Positionne la bordure au-dessus du texte */
@@ -89,29 +89,6 @@ ul {
   background-color: #0065fc; /* Couleur de la bordure */
   transition: all 0.3s ease; /* Animation fluide */
 }
-.navig a:hover {
-  /*partie mobile caché*/
-  color: #0065fc; /* Couleur par défaut */
-  text-decoration: none; /* Pas de soulignement par défaut */
-  position: relative; /* Nécessaire pour placer une bordure au-dessus */
-}
-.navig {
-  /*partie mobile caché*/
-  display: none;
-}
-
-.navig a::before {
-  /*Pour afficher une "bordure de soulignement" au-dessus du texte*/
-  content: ""; /* Nécessaire pour créer un pseudo-élément */
-  position: absolute;
-  bottom: -13px; /* Positionne la bordure au-dessus du texte */
-  left: 0;
-  width: 100%; /* Largeur totale du texte */
-  height: 2px; /* Épaisseur de la bordure */
-  background-color: #0065fc; /* Couleur de la bordure */
-  transition: all 0.3s ease; /* Animation fluide */
-}
-
 /*le menu*/
 /*Le titre*/
 .trouver {
@@ -232,7 +209,6 @@ h2.hebergement {
 }
 .hotelauberge {
   background-color: white;
-  background-color: white;
   border-radius: 20px;
   width: 250.33px;
   height: 207.25px;
@@ -317,6 +293,7 @@ h3.apropos {
   justify-content: space-between;
   margin-top: 30px;
   margin-bottom: 70px;
+  flex-wrap: wrap; /* Permet de gérer les petits écrans */
 }
 
 .hebergements-and-populaires section {
@@ -437,11 +414,12 @@ h3.apropos {
 }
 
 /* Small devices (phones, less than 768px) */
-@media (max-width: 767.98px) {
+@media (max-width: 768px) {
   /* ... */
   /*navigation*/
-  .navigation a::before {
-    bottom: -13px;
+  .nav-link::before {
+    top: auto;
+    bottom: -5px;
   }
   nav {
     display: flex;
@@ -461,17 +439,6 @@ h3.apropos {
     margin: 0;
     margin-left: -70px;
   }
-  .navig {
-    display: block; /*partie mobile du navigateur, caché dans la version bureau*/
-    margin-top: 30px;
-  }
-  .cache {
-    display: none;
-    margin-top: 30px;
-  }
-  .navig {
-    display: block;
-  }
   form {
     margin-left: -20px;
 }
@@ -479,11 +446,6 @@ h3.apropos {
 
   /*barre rechercher*/
   input[type="submit"] {
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 0 25px 25px 0;
-    background-color: #0065fc;
-    border: 1px solid #0065fc;
     display: none;
   }
   .loupe {
