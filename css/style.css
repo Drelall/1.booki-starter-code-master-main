@@ -74,21 +74,31 @@ ul {
   list-style: none; /*retire les points de la balise*/
   margin: 0;
 }
-.nav-link:hover {
-  color: #0065fc; /* Couleur par défaut */
-  text-decoration: none; /* Pas de soulignement par défaut */
-  position: relative; /* Nécessaire pour placer une bordure au-dessus */
-}
-
-.nav-link::before {
-  content: ""; /* Nécessaire pour créer un pseudo-élément */
-  position: absolute;
-  top: -13px; /* Positionne la bordure au-dessus du texte */
-  width: 100%; /* Largeur totale du texte */
-  height: 2px; /* Épaisseur de la bordure */
-  background-color: #0065fc; /* Couleur de la bordure */
-  transition: all 0.3s ease; /* Animation fluide */
-}
+.nav-link {
+    position: relative;
+  }
+  
+  .nav-link:hover {
+    color: #0065fc; /* Couleur au survol */
+    text-decoration: none; /* Pas de soulignement */
+  }
+  
+  .nav-link::before {
+    content: ""; /* Nécessaire pour créer un pseudo-élément */
+    position: absolute;
+    top: -13px; /* Position au-dessus du texte */
+    left: 0; /* Aligné à gauche */
+    width: 0; /* Largeur initiale à 0 pour l'animation */
+    height: 2px; /* Épaisseur de la bordure */
+    background-color: #0065fc; /* Couleur de la bordure */
+    transition: width 0.3s ease; /* Animation de la largeur seulement */
+    opacity: 0; /* Invisible au début */
+  }
+  
+  .nav-link:hover::before {
+    width: 100%; /* Largeur complète au survol */
+    opacity: 1; /* Visible au survol */
+  }
 /*le menu*/
 /*Le titre*/
 .trouver {
@@ -109,7 +119,6 @@ form img {
   height: 49px;
 }
 input#rechercher {
-  padding: 10px; /*marge*/
   border: 1px solid #f2f2f2; /*bordure*/
   outline: none;
   font-weight: bold;
@@ -120,9 +129,10 @@ input#rechercher::placeholder {
 input[type="submit"] {
   color: #ffffff; /*couleur de texte du bouton*/
   font-weight: bold; /*style de texte du bouton*/
-  border-radius: 0 25px 25px 0; /*arrondit le côté droit du bouton*/
+  border-radius: 0 15px 15px 0; /*arrondit le côté droit du bouton*/
   background-color: #0065fc; /*couleur de fond du bouton*/
-  border: 1px solid #0065fc; /* Définit précisément la taille et type de bordure + la couleur */
+  border: none;
+  padding: 0px 15px;
 }
 .loupe {
   display: none; /*cache la loupe en mode bureau*/
@@ -132,10 +142,11 @@ input[type="submit"] {
 /*Les filtres*/
 .bardefiltres {
   display: flex; /*met l'éléments de recherche à l'horizontal*/
-  justify-content: space-between; /*espace les deux éléments du menu*/
-  align-items: center; /*permet de centrer l'image/logo*/
-  margin-right: 700px; /*l'espacement entre les boutons*/
-  margin-top: 15px;
+  align-items: center;
+  margin-top: 30px;
+}
+.bardefiltres__boutons {
+  display: flex;
 }
 button.bouton {
   border-radius: 25px; /*arrondi les angles*/
@@ -200,9 +211,7 @@ h2.hebergement {
   margin-top: 20px;
 }
 .affichezplus {
-  margin-left: -35px;
-  margin-top: 30px;
-  margin-bottom: -40px;
+    margin-top: 30px;
 }
 .marseille {
   margin-top: -20px; /*alignement de la marge avec "Les plus populaires*/
@@ -242,8 +251,6 @@ h2.hebergement {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: -20px;
-  margin-left: 450px;
 }
 .portfortparcdame img {
   border-radius: 20px 20px 0 0;
@@ -417,20 +424,12 @@ h3.apropos {
 @media (max-width: 768px) {
   /* ... */
   /*navigation*/
-  .nav-link::before {
-    top: auto;
-    bottom: -5px;
-  }
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 30px;
-  }
-  nav img {
-    margin-top: 25px;
-    margin-left: 90px;
   }
   ul {
     display: flex;
@@ -441,45 +440,30 @@ h3.apropos {
   }
   form {
     margin-left: -20px;
-}
+  }
   /*navigation*/
 
   /*barre rechercher*/
-  input[type="submit"] {
+  /* input[type="submit"] {
     display: none;
   }
   .loupe {
     display: block;
-  }
+  } */
   /*barre rechercher*/
 
   /*filtres*/
   .bardefiltres {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 700px;
-    margin-top: 15px;
     flex-direction: column;
-    gap: 15px;
-    margin: auto;
+    align-items: start;
   }
   /*filtres*/
 
   /*Hebergement à marseille*/
-  .premiereligne {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: -50px;
-    flex-wrap: wrap;
-  }
+  .premiereligne,
   .deuxiemeligne {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
   .hebergements-and-populaires {
     display: flex;
@@ -525,7 +509,7 @@ h3.apropos {
   /*activité à marseille*/
   h3.cartehote {
     margin-left: 12px;
-}
+  }
   .activite {
     display: flex;
     justify-content: center;
