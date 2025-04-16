@@ -424,6 +424,10 @@ h3.apropos {
 @media (max-width: 768px) {
   /* ... */
   /*navigation*/
+ .nav-link::before {
+        top: auto;
+        bottom: -10px;
+    }
   nav img {
     margin-top: 25px;
     margin-left: 110px;
