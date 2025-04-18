@@ -369,6 +369,12 @@ h3.apropos {
   .hebergements-and-populaires {
     flex-direction: column;
   }
+  .main-container {
+    width: 100%;
+    max-width: 320px;
+    padding: 0 50px;
+    box-sizing: border-box;
+  }
 
   .hebergements {
     width: 100%;
@@ -423,14 +429,11 @@ h3.apropos {
 /* Small devices (phones, less than 768px) */
 @media (max-width: 768px) {
   /***********navigation***************/
-  header {
-    border: 2px solid #e5e5e5;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    height: 101px;
-    margin-left: -60px;
-    margin-right: -60px;
+  .main-container {
+    width: 100%;
+    max-width: 320px;
+    padding: 0 50px;
+    box-sizing: border-box;
   }
   .nav-link:hover::before {
     width: 100%;
